@@ -92,7 +92,7 @@ Yobit.prototype.signMessage = function getMessageSignature(params)
  */
 Yobit.prototype.generateNonce = function getNonce()
 {
-    return Date.now() + ""
+    return Date.now() % 2147483646
 }
 
 /**

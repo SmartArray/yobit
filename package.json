@@ -1,5 +1,5 @@
 {
-    "name": "yobit",
+    "name": "yobit-api",
     "version": "0.0.1",
     "description": "Node.js API wrapper to the Yobit bitcoin exchange",
     "main": "index.js",
@@ -20,8 +20,8 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/kwiksand/yobit"
+        "url": "https://github.com/SmartArray/yobit.git"
     },
-    "author": "Shannon Carver",
+    "author": "Julian Jaeger",
     "license": "MIT"
 }
