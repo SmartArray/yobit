@@ -271,89 +271,40 @@ Yobit.prototype.addTrade = function addTrade(callback, symbol, type, amount, pri
     if (amount) params.amount = amount
     if (price) params.rate = price
 
-    this.privateRequest('trade', params, callback)
+    this.privateRequest('Trade', params, callback)
 }
 
-Yobit.prototype.addBatchTrades = function addBatchTrades(callback, symbol, type, orders)
+Yobit.prototype.cancelOrder = function cancelOrder(callback, order_id)
 {
-    this.privateRequest('batch_trade', {
-        symbol: symbol,
-        type: type,
-        orders_data: orders
-    }, callback)
-}
-
-Yobit.prototype.cancelOrder = function cancelOrder(callback, symbol, order_id)
-{
-    this.privateRequest('cancel_order', {
-        symbol: symbol,
+    this.privateRequest('CancelOrder', {
         order_id: order_id
     }, callback)
 }
 
-Yobit.prototype.getOrderInfo = function getOrderInfo(callback, symbol, order_id)
+Yobit.prototype.getOrderInfo = function getOrderInfo(callback, order_id)
 {
-    this.privateRequest('order_info', {
-        symbol: symbol,
+    this.privateRequest('OrderInfo', {
         order_id: order_id
-    }, callback)
-}
-
-Yobit.prototype.getOrdersInfo = function getOrdersInfo(callback, symbol, type, order_id)
-{
-    this.privateRequest('orders_info', {
-        symbol: symbol,
-        type: type,
-        order_id: order_id
-    }, callback)
-}
-
-Yobit.prototype.getAccountRecords = function getAccountRecords(callback, symbol, type, current_page, page_length)
-{
-    this.privateRequest('account_records', {
-        symbol: symbol,
-        type: type,
-        current_page: current_page,
-        page_length: page_length
     }, callback)
 }
 
 Yobit.prototype.getTradeHistory = function getTradeHistory(callback, symbol, since)
 {
-    this.privateRequest('trade_history', {
+    this.privateRequest('TradeHistory', {
         symbol: symbol,
         since: since
     }, callback)
 }
 
-Yobit.prototype.getOrderHistory = function getOrderHistory(callback, symbol, status, current_page, page_length)
-{
-    this.privateRequest('order_history', {
-        symbol: symbol,
-        status: status,
-        current_page: current_page,
-        page_length: page_length
-    }, callback)
-}
-
 Yobit.prototype.addWithdraw = function addWithdraw(callback, symbol, chargefee, trade_pwd, withdraw_address, withdraw_amount)
 {
-    this.privateRequest('withdraw', {
-        symbol: symbol,
-        chargefee: chargefee,
-        trade_pwd: trade_pwd,
-        withdraw_address: withdraw_address,
-        withdraw_amount: withdraw_amount
+    this.privateRequest('WithdrawCoinsToAddress', {
+        coinName: symbol,
+        address: withdraw_address,
+        amount: withdraw_amount
     }, callback)
 }
 
-Yobit.prototype.cancelWithdraw = function cancelWithdraw(callback, symbol, withdraw_id)
-{
-    this.privateRequest('cancel_withdraw', {
-        symbol: symbol,
-        withdraw_id: withdraw_id
-    }, callback)
-}
 
 /**
  * Maps the Yobit error codes to error message
